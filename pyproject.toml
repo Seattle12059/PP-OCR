@@ -1,0 +1,32 @@
+[project]
+name = "pp-ocr"
+version = "0.1.0"
+description = "Local OCR CLI and document-to-HTML pipeline powered by PP-OCRv6 Tiny"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "paddleocr==3.7.0",
+  "onnxruntime>=1.20.0",
+  # --orient 方向分类模型只有 Paddle 格式，需要 Paddle 引擎
+  "paddlepaddle>=3.0.0",
+  # 直接 import 的库，显式声明，避免依赖传递变化后环境断掉
+  "pillow>=10.0.0",
+  "numpy>=1.24",
+  # PDF 渲染兜底：Windows 上一般没有 poppler，用纯 wheel 的 pdfium
+  "pypdfium2>=4",
+]
+
+[project.scripts]
+ocr = "main:run"
+pp-ocr = "pipeline.cli:run"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main"]
+packages = ["pipeline"]
+
+[tool.setuptools.package-data]
+pipeline = ["print.css", "fontconfig/fonts.conf"]

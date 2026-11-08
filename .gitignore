@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+
+# 运行产物
+ocr-out/
+Out/
+*.log
+
+# 测试临时目录
+.testdata/
+.test-*/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# PaddleX 缓存/锁
+models/func_ret/
+models/temp/
+models/locks/

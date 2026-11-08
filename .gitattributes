@@ -1,0 +1,15 @@
+# 默认让 git 自动判断文本/二进制（模型文件会被识别为二进制）
+* text=auto
+
+# 启动脚本的换行符要固定，否则在另一类系统上会被改成 CRLF 而无法执行
+bin/ocr       text eol=lf
+bin/pp-ocr    text eol=lf
+*.sh          text eol=lf
+*.cmd         text eol=crlf
+*.bat         text eol=crlf
+
+*.py          text eol=lf
+*.md          text eol=lf
+*.toml        text eol=lf
+*.css         text eol=lf
+*.conf        text eol=lf
